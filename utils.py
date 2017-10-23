@@ -16,8 +16,8 @@ class Packet(object):
 	def __init__(self, source, arrivalTime, size):
 		self.source = source
 		self.arrivalTime = arrivalTime
-		self.payload = 'someinfo'
 		self.size = size
+		self.payload = 'someinfo'
 
 
 class Source(object):
@@ -48,14 +48,14 @@ def getSources():
 	with open('input', 'r') as input:
 		for l in input:
 			l = l.split()
-			source = Source(l[0], int(l[1]), int(l[2]), int(l[3]), 1)
+			source = Source(int(l[0]), int(l[1]), int(l[2]), int(l[3]), 1)
 			sources.append(source)
 	return sources
 
 
 def getPackets(sources):
 	"""
-	Returns a list of Packets (not in order of arrival times)
+	Returns a list of all Packets (not in order of arrival times)
 	"""
 	Packets = []
 	for source in sources:
