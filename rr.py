@@ -56,7 +56,7 @@ class RR(object):
 	def run(self):
 		"""
 		"""
-		sources, packets = initialize()
+		sources, packets = initialize('nw')
 		order = []
 		max_iters = self.max_iterations(sources)
 		for t in range(0, max_iters + 1):
@@ -70,8 +70,7 @@ class RR(object):
 				order.extend(packetQueue)
 
 		for p in order:
-			print(p.arrivalTime, end=' ')
-			print(p.source)
+			print(p.source, end=' ')
 		print()
 
 

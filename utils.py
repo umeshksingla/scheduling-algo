@@ -18,6 +18,7 @@ class Packet(object):
 		self.arrivalTime = arrivalTime
 		self.size = size
 		self.payload = 'someinfo'
+		self.virFinish = 0	# needed only for WFQ
 
 
 class Source(object):
@@ -40,7 +41,7 @@ class System(object):
 		pass
 
 
-def getSources():
+def getSources(algo='nw'):
 	"""
 	Returns a list of Sources transmitting packets
 	"""
@@ -48,7 +49,10 @@ def getSources():
 	with open('input', 'r') as input:
 		for l in input:
 			l = l.split()
-			source = Source(int(l[0]), int(l[1]), int(l[2]), int(l[3]), 1)
+			if algo == 'nw':
+				source = Source(int(l[0]), int(l[1]), int(l[2]), int(l[3]), 1)
+			else:
+				source = Source(int(l[0]), int(l[1]), int(l[2]), int(l[3]), float(l[4]))
 			sources.append(source)
 	return sources
 
@@ -67,10 +71,16 @@ def getPackets(sources):
 	return Packets
 
 
-def initialize():
+def initialize(algo='nw'):
 	"""
 	Returns all the sources and packets available to the algo
+	Arguments:
+	algo 	'nw'/'w' for non-weighted/weighted sources
 	"""
-	sources = getSources()
-	packets = getPackets(sources)
-	return sources, packets
+	if algo == 'nw':
+		sources = getSources(algo)
+		packets = getPackets(sources)
+		return sources, packets
+	else:
+		sources = getSources(algo)
+		return sources

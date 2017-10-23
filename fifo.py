@@ -14,7 +14,7 @@ from utils import initialize
 def run():
 	"""
 	"""
-	sources, packets = initialize()
+	sources, packets = initialize('nw')
 	order = sorted(packets, key=lambda x: x.arrivalTime)
 	for p in order:
 		print(p.source, end=' ')
