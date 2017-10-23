@@ -20,6 +20,9 @@ class Packet(object):
 		self.payload = 'someinfo'
 		self.virFinish = 0	# needed only for WFQ
 
+	def __repr__(self):
+		return str(self.source)
+
 
 class Source(object):
 	"""
