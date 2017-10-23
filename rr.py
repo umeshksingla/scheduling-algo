@@ -48,6 +48,11 @@ class RR(object):
 				polled_packets.append(present_packets[i])
 		return polled_packets
 
+		# If decided ever to not go with polling and use last_served_packet's
+		# source, then simply sort:
+		# q = sorted(queue, key=lambda x: x.source)
+		# return q
+
 	def run(self):
 		"""
 		"""
