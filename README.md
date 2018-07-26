@@ -5,8 +5,7 @@ Implementation of FIFO, RR and WFQ scheduling algorithms
 
 To run, simply do:
 
-..code::
-	python filename.py
+`python filename.py`
 
 Input
 -----
