@@ -25,5 +25,5 @@ NOTE
 
 Submitted
 ---------
-Umesh Kumar Singla (201401204)
-Prakhar Pandey (201503004)
+* Umesh Kumar Singla (201401204)
+* Prakhar Pandey (201503004)
